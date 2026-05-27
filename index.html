@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Document Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <h2 class="logo">Brain.AI</h2>
+            
+            <div class="settings-group">
+                <label for="model-select">AI Model</label>
+                <input type="text" id="model-select" value="llama3.2:1b" placeholder="e.g. llama3">
+            </div>
+
+            <div class="upload-area" id="upload-area">
+                <div class="upload-icon">📄</div>
+                <p>Drag & Drop PDF or <span>Browse</span></p>
+                <input type="file" id="file-input" accept=".pdf" hidden>
+            </div>
+            <div id="upload-status" class="status-message"></div>
+
+            <button id="btn-summarize" class="action-btn secondary-btn" disabled>
+                <span class="icon">✨</span> Summarize Document
+            </button>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-area glass-panel">
+            <header class="chat-header">
+                <h1>Document Assistant</h1>
+                <p>Ask questions about your uploaded document</p>
+            </header>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="message system-msg">
+                    <div class="avatar">🤖</div>
+                    <div class="bubble">Hello! Please upload a PDF document on the left to get started.</div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <form id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Ask a question..." autocomplete="off" disabled>
+                    <button type="submit" id="btn-send" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
